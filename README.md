@@ -26,49 +26,49 @@ If you’ve ever worked on a mid-to-large Odoo project, you know the frustration
 ### 1. Studio Workspace (Zero-Lag Architecture)
 Opens with a clean slate. You can search or pick any installed module from the sidebar without freezing your browser.
 
-![Studio Overview](docs/images/01_studio_overview.png)
+![Studio Overview](ormgraph_odoo/static/description/01_studio_overview.png)
 
 ---
 
 ### 2. Module Architecture Graph
 Select a module (like `sale`, `fleet`, or `account`) to immediately render its model topology, foreign connections, and inheritance hierarchies.
 
-![Module Architecture Graph](docs/images/02_module_graph.png)
+![Module Architecture Graph](ormgraph_odoo/static/description/02_module_graph.png)
 
 ---
 
 ### 3. Interactive ERD Schema Cards
 Explore table cards complete with field names, data types, and color-coded relational tags (`Many2one`, `One2many`, `Computed`, `Selection`).
 
-![Interactive ERD Cards](docs/images/03_erd_cards.png)
+![Interactive ERD Cards](ormgraph_odoo/static/description/03_erd_cards.png)
 
 ---
 
 ### 4. BFS Relational Pathfinder
 Pick any two models in your database to find the shortest relational route between them. It outputs the exact Python ORM dot-path (`partner_id.currency_id.symbol`) so you can copy and paste directly into your code.
 
-![Relational Pathfinder](docs/images/04_relational_pathfinder.png)
+![Relational Pathfinder](ormgraph_odoo/static/description/04_relational_pathfinder.png)
 
 ---
 
 ### 5. Architecture Health & Circular Dependency Diagnostics
 A dedicated diagnostic dashboard that flags circular relationships, identifies isolated models, and calculates degree centrality across your database.
 
-![Architecture Health & Diagnostics](docs/images/05_architecture_health_export.png)
+![Architecture Health & Diagnostics](ormgraph_odoo/static/description/05_architecture_health_export.png)
 
 ---
 
 ### 6. High-Resolution ERD Table Card Export
 Export clean, presentation-ready PNG diagrams of your database tables or automatically partition large modules into clustered ZIP bundles.
 
-![ERD Table Diagram Export](docs/images/06_erd.png)
+![ERD Table Diagram Export](ormgraph_odoo/static/description/06_erd.png)
 
 ---
 
 ### 7. High-Resolution Architecture Graph Export
 Download full-vector Cytoscape graph diagrams with automatic watermarking, perfect for technical documentation and sprint planning.
 
-![Graph Architecture Export](docs/images/07_graph.png)
+![Graph Architecture Export](ormgraph_odoo/static/description/07_graph.png)
 
 ---
 
