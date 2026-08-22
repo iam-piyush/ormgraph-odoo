@@ -16,6 +16,16 @@
             background-color: #FAF5FF !important;
             font-weight: 700 !important;
         }
+        .btn-link-action {
+            display: inline-block !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+        }
+        .btn-link-action:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body style="margin:0; padding:0; font-family:'Segoe UI', system-ui, sans-serif; background:#FAF8FB; color:#1E293B;">
@@ -44,10 +54,10 @@
                     Live architecture intelligence, interactive Entity-Relationship Diagrams (ERD), and relational dependency pathfinder for Odoo developers and architects.
                 </p>
                 <div>
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" style="display:inline-block; padding:11px 26px; background-color:#714B67; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:14px; font-weight:700; text-transform:uppercase; margin-right:8px; box-shadow:0 4px 12px rgba(113,75,103,0.25);">
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" class="btn-link-action" style="padding:12px 28px; background-color:#714B67; color:#FFFFFF; border-radius:8px; font-size:14px; font-weight:700; text-transform:uppercase; margin-right:10px; box-shadow:0 4px 12px rgba(113,75,103,0.25);">
                         Star on GitHub
                     </a>
-                    <a href="https://youtu.be/kbXoW1u22XA" target="_blank" style="display:inline-block; padding:11px 26px; background-color:#017E84; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:14px; font-weight:700; text-transform:uppercase; box-shadow:0 4px 12px rgba(1,126,132,0.25);">
+                    <a href="https://youtu.be/kbXoW1u22XA" target="_blank" class="btn-link-action" style="padding:12px 28px; background-color:#017E84; color:#FFFFFF; border-radius:8px; font-size:14px; font-weight:700; text-transform:uppercase; box-shadow:0 4px 12px rgba(1,126,132,0.25);">
                         Watch Video Demo
                     </a>
                 </div>
@@ -91,16 +101,16 @@
             <h2 style="font-size:26px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                 See ORMGraph in Action
             </h2>
-            <p style="color:#64748B; font-size:14.5px; margin:0 0 20px 0;">Click below to watch the full live studio walkthrough on YouTube.</p>
+            <p style="color:#64748B; font-size:14.5px; margin:0 0 20px 0;">Click below to watch the live studio walkthrough on YouTube.</p>
         </div>
-        <div style="max-width:850px; margin:0 auto; border-radius:12px; overflow:hidden; border:2px solid #E0E8F0; box-shadow:0 12px 32px rgba(113,75,103,0.15); position:relative;">
-            <a href="https://youtu.be/kbXoW1u22XA" target="_blank" style="display:block; text-decoration:none;">
-                <img src="./banner.png" alt="Watch Video Walkthrough" style="width:100%; display:block;">
-                <div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(31, 24, 36, 0.35); display:flex; align-items:center; justify-content:center;">
-                    <div style="background:#714B67; color:#FFFFFF; border:3px solid #FFFFFF; border-radius:50px; padding:14px 30px; font-weight:800; font-size:14px; text-transform:uppercase; box-shadow:0 8px 24px rgba(0,0,0,0.4); letter-spacing:0.5px;">
-                        Play Video Walkthrough
-                    </div>
-                </div>
+        <div style="max-width:850px; margin:0 auto; border-radius:12px; overflow:hidden; border:2px solid #E0E8F0; box-shadow:0 12px 32px rgba(113,75,103,0.15);">
+            <a href="https://youtu.be/kbXoW1u22XA" target="_blank" class="btn-link-action" style="display:block; width:100%;">
+                <img src="./01_studio_overview.png" alt="Watch Video Walkthrough" style="width:100%; display:block;">
+            </a>
+        </div>
+        <div style="margin-top:20px;">
+            <a href="https://youtu.be/kbXoW1u22XA" target="_blank" class="btn-link-action" style="padding:12px 32px; background-color:#714B67; color:#FFFFFF; border-radius:8px; font-size:14px; font-weight:700; text-transform:uppercase; box-shadow:0 4px 14px rgba(113,75,103,0.3);">
+                Play Video on YouTube
             </a>
         </div>
     </section>
@@ -117,54 +127,54 @@
 
         <div class="row" style="margin-top:28px;">
             
-            <!-- Left Tab Navigation Sidebar (Clean list) -->
+            <!-- Left Tab Navigation Sidebar -->
             <div class="col-md-4 mb-3 mb-md-0">
                 <ul class="nav nav-tabs flex-column" id="featureTabList" role="tablist" style="border-bottom:none !important; gap:8px;">
                     
                     <li class="nav-item position-relative" style="width:100%;">
-                        <a class="nav-link active" data-toggle="tab" data-bs-toggle="tab" href="#tour1" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none;">
+                        <a class="nav-link active" data-toggle="tab" data-bs-toggle="tab" href="#tour1" role="tab" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none;">
                             1. Studio Workspace
                         </a>
                     </li>
                     <li class="nav-item position-relative" style="width:100%;">
-                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour2" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour2" role="tab" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
                             2. Module Architecture Graph
                         </a>
                     </li>
                     <li class="nav-item position-relative" style="width:100%;">
-                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour3" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour3" role="tab" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
                             3. Interactive ERD Schema Cards
                         </a>
                     </li>
                     <li class="nav-item position-relative" style="width:100%;">
-                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour4" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour4" role="tab" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
                             4. BFS Relational Pathfinder
                         </a>
                     </li>
                     <li class="nav-item position-relative" style="width:100%;">
-                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour5" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour5" role="tab" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
                             5. Health &amp; Diagnostics
                         </a>
                     </li>
                     <li class="nav-item position-relative" style="width:100%;">
-                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour6" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour6" role="tab" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
                             6. ERD Table Diagram Export
                         </a>
                     </li>
                     <li class="nav-item position-relative" style="width:100%;">
-                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour7" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour7" role="tab" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
                             7. Graph Vector Diagram Export
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <!-- Right Tab Content Pane with High-Res Screenshots -->
+            <!-- Right Tab Content Pane -->
             <div class="col-md-8">
                 <div class="tab-content" id="featureTabContent" style="border:1px solid #E8EEF4; background:#FFFFFF; border-radius:10px; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.03);">
                     
                     <!-- TAB 1: STUDIO CANVAS -->
-                    <div class="tab-pane active show" id="tour1">
+                    <div class="tab-pane active show" id="tour1" role="tabpanel">
                         <div style="margin-bottom:12px;">
                             <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                                 1. Zero-Lag Studio Workspace
@@ -179,7 +189,7 @@
                     </div>
 
                     <!-- TAB 2: MODULE GRAPH -->
-                    <div class="tab-pane fade" id="tour2">
+                    <div class="tab-pane fade" id="tour2" role="tabpanel">
                         <div style="margin-bottom:12px;">
                             <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                                 2. Structural Architecture Graph
@@ -194,7 +204,7 @@
                     </div>
 
                     <!-- TAB 3: ERD CARDS -->
-                    <div class="tab-pane fade" id="tour3">
+                    <div class="tab-pane fade" id="tour3" role="tabpanel">
                         <div style="margin-bottom:12px;">
                             <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                                 3. Interactive ERD Schema Cards
@@ -209,7 +219,7 @@
                     </div>
 
                     <!-- TAB 4: PATHFINDER -->
-                    <div class="tab-pane fade" id="tour4">
+                    <div class="tab-pane fade" id="tour4" role="tabpanel">
                         <div style="margin-bottom:12px;">
                             <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                                 4. BFS Relational Pathfinder
@@ -224,7 +234,7 @@
                     </div>
 
                     <!-- TAB 5: HEALTH DIAGNOSTICS -->
-                    <div class="tab-pane fade" id="tour5">
+                    <div class="tab-pane fade" id="tour5" role="tabpanel">
                         <div style="margin-bottom:12px;">
                             <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                                 5. Architecture Health &amp; Diagnostics
@@ -239,7 +249,7 @@
                     </div>
 
                     <!-- TAB 6: ERD EXPORT -->
-                    <div class="tab-pane fade" id="tour6">
+                    <div class="tab-pane fade" id="tour6" role="tabpanel">
                         <div style="margin-bottom:12px;">
                             <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                                 6. High-Resolution ERD Table Card Export
@@ -254,7 +264,7 @@
                     </div>
 
                     <!-- TAB 7: GRAPH EXPORT -->
-                    <div class="tab-pane fade" id="tour7">
+                    <div class="tab-pane fade" id="tour7" role="tabpanel">
                         <div style="margin-bottom:12px;">
                             <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
                                 7. High-Resolution Architecture Graph Export
@@ -274,7 +284,7 @@
         </div>
     </section>
 
-    <!-- ===== 4. OPEN SOURCE & COMMUNITY CONTRIBUTION SECTION ===== -->
+    <!-- ===== 5. OPEN SOURCE & COMMUNITY CONTRIBUTION SECTION ===== -->
     <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:36px 40px; margin-bottom:24px; border-left:6px solid #E4A900;">
         <div class="row align-items-center">
             <div class="col-md-8">
@@ -293,13 +303,13 @@
                     ORMGraph is a <strong>100% free and open-source project</strong> built for the entire Odoo developer community. Whether you want to report a bug, suggest new graph algorithms, or submit improvements — your contributions are warmly welcomed!
                 </p>
                 <div>
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#714B67; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; margin-bottom:6px;">
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" class="btn-link-action" style="padding:10px 22px; background-color:#714B67; color:#FFFFFF; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:8px; margin-bottom:8px; box-shadow:0 4px 12px rgba(113,75,103,0.25);">
                         Star Repository
                     </a>
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo/issues" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#017E84; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; margin-bottom:6px;">
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo/issues" target="_blank" class="btn-link-action" style="padding:10px 22px; background-color:#017E84; color:#FFFFFF; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:8px; margin-bottom:8px; box-shadow:0 4px 12px rgba(1,126,132,0.25);">
                         Request Feature / Bug
                     </a>
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo/pulls" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#E4A900; color:#1F1824; text-decoration:none; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-bottom:6px;">
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo/pulls" target="_blank" class="btn-link-action" style="padding:10px 22px; background-color:#E4A900; color:#1F1824; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-bottom:8px; box-shadow:0 4px 12px rgba(228,169,0,0.25);">
                         Submit Pull Request
                     </a>
                 </div>
@@ -313,7 +323,7 @@
         </div>
     </section>
 
-    <!-- ===== 5. QUICK START GUIDE ===== -->
+    <!-- ===== 6. QUICK START GUIDE ===== -->
     <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:30px 40px; margin-bottom:24px;">
         <h3 style="font-size:22px; font-weight:800; color:#151515; margin:0 0 20px 0; text-transform:uppercase;">
             Quick Start (3 Simple Steps)
@@ -340,7 +350,7 @@
         </div>
     </section>
 
-    <!-- ===== 6. AUTHOR & SUPPORT ===== -->
+    <!-- ===== 7. AUTHOR & SUPPORT ===== -->
     <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:30px 40px; margin-bottom:20px;">
         <div class="row align-items-center">
             <div class="col-md-12">
@@ -352,10 +362,10 @@
                     Crafted by <strong>Piyush Kumar</strong>, Full-Stack Software Engineer &amp; Odoo Specialist based in Gurugram, India. Building developer tooling, backend architectures, and high-performance software.
                 </p>
                 <div>
-                    <a href="https://iampiyush.one" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#714B67; color:#FFFFFF; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; box-shadow:0 4px 12px rgba(113,75,103,0.2);">Portfolio</a>
-                    <a href="https://github.com/iam-piyush" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#FFFFFF; color:#151515; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; border:1px solid #dee2e6;">GitHub</a>
-                    <a href="https://linkedin.com/in/iam-piyush" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#FFFFFF; color:#151515; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; border:1px solid #dee2e6;">LinkedIn</a>
-                    <a href="https://x.com/ipiyuush" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#FFFFFF; color:#151515; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; border:1px solid #dee2e6;">X</a>
+                    <a href="https://iampiyush.one" target="_blank" class="btn-link-action" style="padding:10px 22px; background-color:#714B67; color:#FFFFFF; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:8px; margin-bottom:6px; box-shadow:0 4px 12px rgba(113,75,103,0.2);">Portfolio</a>
+                    <a href="https://github.com/iam-piyush" target="_blank" class="btn-link-action" style="padding:10px 22px; background-color:#FFFFFF; color:#151515; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:8px; margin-bottom:6px; border:1px solid #dee2e6;">GitHub</a>
+                    <a href="https://linkedin.com/in/iam-piyush" target="_blank" class="btn-link-action" style="padding:10px 22px; background-color:#FFFFFF; color:#151515; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:8px; margin-bottom:6px; border:1px solid #dee2e6;">LinkedIn</a>
+                    <a href="https://x.com/ipiyuush" target="_blank" class="btn-link-action" style="padding:10px 22px; background-color:#FFFFFF; color:#151515; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; border:1px solid #dee2e6; margin-bottom:6px;">X</a>
                 </div>
             </div>
         </div>
