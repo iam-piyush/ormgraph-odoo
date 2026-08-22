@@ -4,447 +4,366 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORMGraph for Odoo — Live Architecture &amp; ERD Studio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        .oe_container {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #1E293B;
-        }
-        .odoo-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 14px;
-            font-size: 11.5px;
-            font-weight: 800;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-right: 6px;
-            margin-bottom: 6px;
-        }
-        .odoo-card {
-            background: #FFFFFF;
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 28px;
-            box-shadow: 0 12px 32px -4px rgba(113, 75, 103, 0.08), 0 4px 12px -2px rgba(1, 126, 132, 0.04);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-        /* Wide 7-Tab Navigation Bar */
-        .nav-tabs-odoo-wide {
-            border-bottom: 2px solid #E2E8F0;
-            display: flex;
-            justify-content: space-between;
-            gap: 4px;
-            margin-bottom: 24px;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-        }
-        .nav-tabs-odoo-wide .nav-item {
-            margin-bottom: -2px;
-            flex: 1 1 auto;
-            text-align: center;
-        }
-        .nav-tabs-odoo-wide .nav-link {
-            font-size: 13.5px;
-            font-weight: 700;
-            color: #64748B;
-            padding: 14px 10px;
-            border: none;
-            border-bottom: 3px solid transparent;
-            background: transparent;
-            transition: all 0.2s ease;
-            text-decoration: none !important;
-            white-space: nowrap;
-            display: block;
-        }
-        .nav-tabs-odoo-wide .nav-link:hover {
-            color: #714B67;
-            border-bottom-color: rgba(113, 75, 103, 0.4);
-        }
-        .nav-tabs-odoo-wide .nav-link.active {
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            border: 1px solid #714B67 !important;
+            border-radius: 6px !important;
             color: #714B67 !important;
-            border-bottom: 3px solid #714B67 !important;
-            background: transparent !important;
-            font-weight: 900;
-        }
-        /* Blueprint Grid Container for Screenshots */
-        .odoo-grid-box {
-            background-color: #F8FAFC;
-            background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
-            background-size: 16px 16px;
-            border-radius: 8px;
-            padding: 14px;
-            margin-top: 14px;
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(226, 232, 240, 0.7);
-        }
-        .odoo-grid-box img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            display: block;
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-        }
-        .btn-odoo {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 10px 22px;
-            border-radius: 6px;
-            text-decoration: none !important;
-            letter-spacing: 0.5px;
-            font-size: 12.5px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .btn-odoo:hover {
-            transform: translateY(-2px);
+            background-color: #FAF5FF !important;
+            font-weight: 700 !important;
         }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #FAF8FB; color: #1E293B;">
+<body style="margin:0; padding:0; font-family:'Segoe UI', system-ui, sans-serif; background:#FAF8FB; color:#1E293B;">
 
-<div class="container py-4" style="max-width: 1140px;">
+<div style="max-width: 1140px; margin: 0 auto; padding: 20px 15px;">
 
-    <!-- ══ HERO BANNER ═══════════════════════════════════════════ -->
-    <section class="oe_container odoo-card p-4 p-md-5 mb-4" style="background: linear-gradient(135deg, #FFFFFF 0%, #FAF5FF 60%, #F0FDFA 100%); box-shadow: 0 20px 40px -10px rgba(113, 75, 103, 0.16); border-top: 4px solid #714B67;">
+    <!-- ===== 1. HERO SECTION ===== -->
+    <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:35px 40px; margin-bottom:24px;">
         <div class="row align-items-center">
             <div class="col-md-9">
                 <div class="mb-3">
-                    <span class="odoo-badge" style="background: #714B67; color: #FFFFFF; box-shadow: 0 4px 12px rgba(113, 75, 103, 0.25);">
+                    <span style="display:inline-block; background:#F3E8FF; border:1px solid #714B67; padding:6px 14px; border-radius:50px; font-size:12px; font-weight:700; color:#714B67; text-transform:uppercase; margin-right:6px;">
                         Odoo 17 · 18 · 19
                     </span>
-                    <span class="odoo-badge" style="background: #017E84; color: #FFFFFF; box-shadow: 0 4px 12px rgba(1, 126, 132, 0.25);">
+                    <span style="display:inline-block; background:#E6FFFA; border:1px solid #017E84; padding:6px 14px; border-radius:50px; font-size:12px; font-weight:700; color:#017E84; text-transform:uppercase; margin-right:6px;">
                         Community &amp; Enterprise
                     </span>
-                    <span class="odoo-badge" style="background: #E4A900; color: #1F1824; box-shadow: 0 4px 12px rgba(228, 169, 0, 0.25);">
+                    <span style="display:inline-block; background:#FEF3C7; border:1px solid #D97706; padding:6px 14px; border-radius:50px; font-size:12px; font-weight:700; color:#B38600; text-transform:uppercase;">
                         100% Free &amp; Open Source
                     </span>
                 </div>
-                <h1 style="font-size: 36px; font-weight: 900; color: #0F172A; text-transform: uppercase; margin: 0 0 12px 0; letter-spacing: -0.8px;">
+                <h1 style="font-size:36px; font-weight:800; color:#151515; line-height:1.2; margin:0 0 12px 0; text-transform:uppercase;">
                     ORMGraph for Odoo
                 </h1>
-                <p style="font-size: 16px; color: #475569; line-height: 1.6; margin: 0 0 20px 0; max-width: 720px;">
+                <p style="font-size:16px; color:#585858; line-height:1.6; margin:0 0 20px 0; max-width:700px;">
                     Live architecture intelligence, interactive Entity-Relationship Diagrams (ERD), and relational dependency pathfinder for Odoo developers and architects.
                 </p>
                 <div>
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" class="btn-odoo" style="background: #714B67; color: #FFFFFF; box-shadow: 0 6px 18px rgba(113, 75, 103, 0.3);">
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" style="display:inline-block; padding:11px 26px; background-color:#714B67; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:14px; font-weight:700; text-transform:uppercase; margin-right:8px; box-shadow:0 4px 12px rgba(113,75,103,0.25);">
                         Star on GitHub
                     </a>
-                    <a href="#demo-video" class="btn-odoo ml-2" style="background: #017E84; color: #FFFFFF; box-shadow: 0 6px 18px rgba(1, 126, 132, 0.3);">
+                    <a href="https://youtu.be/kbXoW1u22XA" target="_blank" style="display:inline-block; padding:11px 26px; background-color:#017E84; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:14px; font-weight:700; text-transform:uppercase; box-shadow:0 4px 12px rgba(1,126,132,0.25);">
                         Watch Video Demo
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 text-center mt-4 mt-md-0">
-                <img src="./icon.png" alt="ORMGraph Icon" style="max-width: 120px; border-radius: 20px; box-shadow: 0 16px 32px rgba(113, 75, 103, 0.22); border: 2px solid #FFFFFF;">
+            <div class="col-md-3 text-center mt-3 mt-md-0">
+                <img src="./icon.png" alt="ORMGraph Icon" style="max-width:110px; border-radius:18px; border:2px solid #E0E8F0; box-shadow:0 8px 24px rgba(113,75,103,0.15);">
             </div>
         </div>
     </section>
 
-    <!-- ══ LIVE DEMO VIDEO SECTION ════════════════════════════════ -->
-    <section id="demo-video" class="oe_container odoo-card p-4 p-md-5 mb-4" style="box-shadow: 0 16px 36px -6px rgba(1, 126, 132, 0.14); border-top: 4px solid #017E84;">
-        <div class="text-center mb-4">
-            <span class="odoo-badge" style="background: rgba(1, 126, 132, 0.12); color: #017E84;">
-                LIVE STUDIO WALKTHROUGH
-            </span>
-            <h2 style="font-size: 26px; font-weight: 900; color: #0F172A; text-transform: uppercase; letter-spacing: -0.5px; margin: 4px 0 6px 0;">
-                See ORMGraph in Action
-            </h2>
-            <p style="font-size: 14.5px; color: #64748B; margin: 0;">Watch how fast you can explore, navigate, and debug 500+ Odoo database models in real time.</p>
-        </div>
-        <div class="odoo-grid-box p-2 p-md-3">
-            <div class="embed-responsive embed-responsive-16by9" style="border-radius: 8px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/kbXoW1u22XA?rel=0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ VALUE PROPOSITION WITH VIBRANT TINTS ═══════════════════ -->
-    <section class="oe_container odoo-card p-4 mb-4">
+    <!-- ===== 2. VALUE PROPOSITION SECTION ===== -->
+    <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:30px 40px; margin-bottom:24px;">
         <div class="row">
             <div class="col-md-4 mb-3 mb-md-0">
-                <div style="background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%); border-radius: 10px; padding: 22px; height: 100%; border-left: 4px solid #714B67;">
-                    <div style="font-weight: 800; color: #714B67; font-size: 14.5px; text-transform: uppercase; margin-bottom: 4px;">Zero Browser Freeze</div>
-                    <p style="font-size: 13.5px; color: #524759; margin: 0; line-height: 1.55;">Module-by-module isolation prevents lag when rendering databases with 600+ models.</p>
+                <div style="background:#FFFFFF; border:1px solid #E8EEF4; border-radius:10px; padding:22px; height:100%; border-left:4px solid #714B67;">
+                    <h5 style="font-size:15px; font-weight:700; color:#714B67; text-transform:uppercase; margin-bottom:6px;">Zero Browser Freeze</h5>
+                    <p style="color:#64748B; font-size:13.5px; margin:0; line-height:1.6;">Module-by-module isolation prevents browser crashing when analyzing databases with 600+ models.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
-                <div style="background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%); border-radius: 10px; padding: 22px; height: 100%; border-left: 4px solid #017E84;">
-                    <div style="font-weight: 800; color: #017E84; font-size: 14.5px; text-transform: uppercase; margin-bottom: 4px;">Instant Pathfinder</div>
-                    <p style="font-size: 13.5px; color: #524759; margin: 0; line-height: 1.55;">Traces the exact ORM dot-path (e.g. <code>partner_id.company_id</code>) across multi-hop links.</p>
+                <div style="background:#FFFFFF; border:1px solid #E8EEF4; border-radius:10px; padding:22px; height:100%; border-left:4px solid #017E84;">
+                    <h5 style="font-size:15px; font-weight:700; color:#017E84; text-transform:uppercase; margin-bottom:6px;">Instant Pathfinder</h5>
+                    <p style="color:#64748B; font-size:13.5px; margin:0; line-height:1.6;">Traces the exact ORM dot-path (e.g. <code>partner_id.company_id</code>) across multi-hop relationships.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-radius: 10px; padding: 22px; height: 100%; border-left: 4px solid #E4A900;">
-                    <div style="font-weight: 800; color: #B38600; font-size: 14.5px; text-transform: uppercase; margin-bottom: 4px;">Smart ZIP Export</div>
-                    <p style="font-size: 13.5px; color: #524759; margin: 0; line-height: 1.55;">Auto-partitions complex modules into high-res PNG clusters bundled inside a ZIP archive.</p>
+                <div style="background:#FFFFFF; border:1px solid #E8EEF4; border-radius:10px; padding:22px; height:100%; border-left:4px solid #E4A900;">
+                    <h5 style="font-size:15px; font-weight:700; color:#B38600; text-transform:uppercase; margin-bottom:6px;">Smart ZIP Export</h5>
+                    <p style="color:#64748B; font-size:13.5px; margin:0; line-height:1.6;">Auto-partitions complex modules into high-res PNG sub-clusters bundled inside a clean ZIP archive.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ WIDE 7-TAB FEATURE SHOWCASE ════════════════════════════ -->
-    <section class="oe_container odoo-card p-4 p-md-5 mb-4" style="box-shadow: 0 16px 36px -6px rgba(113, 75, 103, 0.1);">
+    <!-- ===== 3. LIVE VIDEO DEMO WALKTHROUGH THUMBNAIL ===== -->
+    <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:35px 40px; margin-bottom:24px; text-align:center;">
+        <div class="mb-3">
+            <span style="display:inline-block; background:#E6FFFA; border:1px solid #017E84; padding:5px 14px; border-radius:50px; font-size:11.5px; font-weight:700; color:#017E84; text-transform:uppercase; margin-bottom:8px;">
+                VIDEO DEMO // WALKTHROUGH
+            </span>
+            <h2 style="font-size:26px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                See ORMGraph in Action
+            </h2>
+            <p style="color:#64748B; font-size:14.5px; margin:0 0 20px 0;">Click below to watch the full live studio walkthrough on YouTube.</p>
+        </div>
+        <div style="max-width:850px; margin:0 auto; border-radius:12px; overflow:hidden; border:2px solid #E0E8F0; box-shadow:0 12px 32px rgba(113,75,103,0.15); position:relative;">
+            <a href="https://youtu.be/kbXoW1u22XA" target="_blank" style="display:block; text-decoration:none;">
+                <img src="./banner.png" alt="Watch Video Walkthrough" style="width:100%; display:block;">
+                <div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(31, 24, 36, 0.35); display:flex; align-items:center; justify-content:center;">
+                    <div style="background:#714B67; color:#FFFFFF; border:3px solid #FFFFFF; border-radius:50px; padding:14px 30px; font-weight:800; font-size:14px; text-transform:uppercase; box-shadow:0 8px 24px rgba(0,0,0,0.4); letter-spacing:0.5px;">
+                        Play Video Walkthrough
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== 4. INTERACTIVE FEATURE TOUR WITH VERTICAL SIDEBAR TABS ===== -->
+    <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:36px 40px; margin-bottom:24px;">
         
         <div class="text-center mb-4">
-            <h2 style="font-size: 26px; font-weight: 900; color: #0F172A; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 6px;">
-                Interactive Feature Tour
+            <h2 style="font-size:28px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                Visual Feature Tour
             </h2>
-            <p style="font-size: 14.5px; color: #64748B; margin-bottom: 24px;">Explore each tool inside the ORMGraph studio.</p>
-            
-            <!-- Clean 7-Tab Bar (Wide layout fits all 7 tabs on 1 single line) -->
-            <ul class="nav nav-tabs-odoo-wide" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="tab-canvas-btn" data-toggle="tab" data-bs-toggle="tab" href="#tab-canvas" role="tab" aria-controls="tab-canvas" aria-selected="true">
-                        Studio Canvas
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-graph-btn" data-toggle="tab" data-bs-toggle="tab" href="#tab-graph" role="tab" aria-controls="tab-graph" aria-selected="false">
-                        Module Graph
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-erd-btn" data-toggle="tab" data-bs-toggle="tab" href="#tab-erd" role="tab" aria-controls="tab-erd" aria-selected="false">
-                        ERD Cards
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-path-btn" data-toggle="tab" data-bs-toggle="tab" href="#tab-path" role="tab" aria-controls="tab-path" aria-selected="false">
-                        BFS Pathfinder
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-diag-btn" data-toggle="tab" data-bs-toggle="tab" href="#tab-diag" role="tab" aria-controls="tab-diag" aria-selected="false">
-                        Health &amp; Cycles
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-erdexport-btn" data-toggle="tab" data-bs-toggle="tab" href="#tab-erdexport" role="tab" aria-controls="tab-erdexport" aria-selected="false">
-                        ERD Table Export
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-graphexport-btn" data-toggle="tab" data-bs-toggle="tab" href="#tab-graphexport" role="tab" aria-controls="tab-graphexport" aria-selected="false">
-                        Graph Vector Export
-                    </a>
-                </li>
-            </ul>
+            <p style="color:#64748B; font-size:15px; margin:0;">Click any feature tab on the left to explore screenshots of the studio.</p>
         </div>
 
-        <!-- Tab Content Panes -->
-        <div class="tab-content" id="ormgraphTabContent">
+        <div class="row" style="margin-top:28px;">
             
-            <!-- 1. Studio Canvas -->
-            <div class="tab-pane fade show active" id="tab-canvas" role="tabpanel" aria-labelledby="tab-canvas-btn">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h3 style="font-size: 19px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin: 0;">
-                        1. Zero-Lag Studio Workspace
-                    </h3>
-                    <span class="odoo-badge" style="background: rgba(113, 75, 103, 0.12); color: #714B67;">CANVAS 01</span>
-                </div>
-                <p style="font-size: 14.5px; color: #64748B; margin-bottom: 14px; line-height: 1.55;">
-                    Opens with a clean slate. Search or pick any installed Odoo module (e.g. <code>sale</code>, <code>fleet</code>, <code>account</code>) from the sidebar without freezing your browser.
-                </p>
-                <div class="odoo-grid-box">
-                    <img src="./01_studio_overview.png" alt="Studio Overview">
-                </div>
+            <!-- Left Tab Navigation Sidebar (Clean list) -->
+            <div class="col-md-4 mb-3 mb-md-0">
+                <ul class="nav nav-tabs flex-column" id="featureTabList" role="tablist" style="border-bottom:none !important; gap:8px;">
+                    
+                    <li class="nav-item position-relative" style="width:100%;">
+                        <a class="nav-link active" data-toggle="tab" data-bs-toggle="tab" href="#tour1" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none;">
+                            1. Studio Workspace
+                        </a>
+                    </li>
+                    <li class="nav-item position-relative" style="width:100%;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour2" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                            2. Module Architecture Graph
+                        </a>
+                    </li>
+                    <li class="nav-item position-relative" style="width:100%;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour3" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                            3. Interactive ERD Schema Cards
+                        </a>
+                    </li>
+                    <li class="nav-item position-relative" style="width:100%;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour4" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                            4. BFS Relational Pathfinder
+                        </a>
+                    </li>
+                    <li class="nav-item position-relative" style="width:100%;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour5" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                            5. Health &amp; Diagnostics
+                        </a>
+                    </li>
+                    <li class="nav-item position-relative" style="width:100%;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour6" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                            6. ERD Table Diagram Export
+                        </a>
+                    </li>
+                    <li class="nav-item position-relative" style="width:100%;">
+                        <a class="nav-link" data-toggle="tab" data-bs-toggle="tab" href="#tour7" style="border:1px solid #dee2e6; padding:12px 18px; font-weight:700; font-size:14px; color:#1F1824; border-radius:8px !important; text-decoration:none; background:#fff;">
+                            7. Graph Vector Diagram Export
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <!-- 2. Module Graph -->
-            <div class="tab-pane fade" id="tab-graph" role="tabpanel" aria-labelledby="tab-graph-btn">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h3 style="font-size: 19px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin: 0;">
-                        2. Structural Architecture Graph
-                    </h3>
-                    <span class="odoo-badge" style="background: rgba(1, 126, 132, 0.12); color: #017E84;">GRAPH 02</span>
-                </div>
-                <p style="font-size: 14.5px; color: #64748B; margin-bottom: 14px; line-height: 1.55;">
-                    Cytoscape-powered high-performance graph with multiple layout algorithms (Hierarchy, Flow, Organic). Visualizes model inheritance, relational field links, and foreign module bridges.
-                </p>
-                <div class="odoo-grid-box">
-                    <img src="./02_module_graph.png" alt="Module Architecture Graph">
-                </div>
-            </div>
+            <!-- Right Tab Content Pane with High-Res Screenshots -->
+            <div class="col-md-8">
+                <div class="tab-content" id="featureTabContent" style="border:1px solid #E8EEF4; background:#FFFFFF; border-radius:10px; padding:20px; box-shadow:0 6px 20px rgba(0,0,0,0.03);">
+                    
+                    <!-- TAB 1: STUDIO CANVAS -->
+                    <div class="tab-pane active show" id="tour1">
+                        <div style="margin-bottom:12px;">
+                            <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                                1. Zero-Lag Studio Workspace
+                            </h4>
+                            <p style="color:#64748b; font-size:14px; margin:0 0 16px 0; line-height:1.6;">
+                                Opens with a clean, responsive slate. Search or pick any installed Odoo module from the sidebar to inspect its architecture immediately.
+                            </p>
+                            <div style="background:#F8FAFC; padding:8px; border:1px solid #E2E8F0; border-radius:8px;">
+                                <img src="./01_studio_overview.png" alt="Studio Overview" style="width:100%; border-radius:6px; display:block;">
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- 3. ERD Cards -->
-            <div class="tab-pane fade" id="tab-erd" role="tabpanel" aria-labelledby="tab-erd-btn">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h3 style="font-size: 19px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin: 0;">
-                        3. Interactive ERD Schema Cards
-                    </h3>
-                    <span class="odoo-badge" style="background: rgba(228, 169, 0, 0.16); color: #B38600;">SCHEMA 03</span>
-                </div>
-                <p style="font-size: 14.5px; color: #64748B; margin-bottom: 14px; line-height: 1.55;">
-                    Visual database schema table cards with color-coded badges for relational (<code>Many2one</code>, <code>One2many</code>, <code>Many2many</code>), numeric, computed, and selection fields with drag &amp; zoom.
-                </p>
-                <div class="odoo-grid-box">
-                    <img src="./03_erd_cards.png" alt="Interactive ERD Cards">
-                </div>
-            </div>
+                    <!-- TAB 2: MODULE GRAPH -->
+                    <div class="tab-pane fade" id="tour2">
+                        <div style="margin-bottom:12px;">
+                            <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                                2. Structural Architecture Graph
+                            </h4>
+                            <p style="color:#64748b; font-size:14px; margin:0 0 16px 0; line-height:1.6;">
+                                Cytoscape-powered high-performance graph with multiple layout algorithms (Hierarchy, Flow, Organic). Visualizes model inheritance and foreign connections.
+                            </p>
+                            <div style="background:#F8FAFC; padding:8px; border:1px solid #E2E8F0; border-radius:8px;">
+                                <img src="./02_module_graph.png" alt="Module Architecture Graph" style="width:100%; border-radius:6px; display:block;">
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- 4. Pathfinder -->
-            <div class="tab-pane fade" id="tab-path" role="tabpanel" aria-labelledby="tab-path-btn">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h3 style="font-size: 19px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin: 0;">
-                        4. BFS Relational Pathfinder
-                    </h3>
-                    <span class="odoo-badge" style="background: rgba(33, 183, 153, 0.15); color: #188670;">PATHFINDER 04</span>
-                </div>
-                <p style="font-size: 14.5px; color: #64748B; margin-bottom: 14px; line-height: 1.55;">
-                    Calculates the shortest relational route between any two database models and generates 1-click ORM dot-notation code (e.g. <code>partner_id.currency_id.symbol</code>).
-                </p>
-                <div class="odoo-grid-box">
-                    <img src="./04_relational_pathfinder.png" alt="Relational Pathfinder">
-                </div>
-            </div>
+                    <!-- TAB 3: ERD CARDS -->
+                    <div class="tab-pane fade" id="tour3">
+                        <div style="margin-bottom:12px;">
+                            <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                                3. Interactive ERD Schema Cards
+                            </h4>
+                            <p style="color:#64748b; font-size:14px; margin:0 0 16px 0; line-height:1.6;">
+                                Table cards with color-coded badges for relational fields (Many2one, One2many, Many2many), compute status, and selection types with drag &amp; zoom.
+                            </p>
+                            <div style="background:#F8FAFC; padding:8px; border:1px solid #E2E8F0; border-radius:8px;">
+                                <img src="./03_erd_cards.png" alt="Interactive ERD Cards" style="width:100%; border-radius:6px; display:block;">
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- 5. Health & Diagnostics -->
-            <div class="tab-pane fade" id="tab-diag" role="tabpanel" aria-labelledby="tab-diag-btn">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h3 style="font-size: 19px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin: 0;">
-                        5. Architecture Health &amp; Diagnostics
-                    </h3>
-                    <span class="odoo-badge" style="background: rgba(228, 110, 120, 0.16); color: #C2434E;">DIAGNOSTICS 05</span>
-                </div>
-                <p style="font-size: 14.5px; color: #64748B; margin-bottom: 14px; line-height: 1.55;">
-                    Explore full database schemas, circular dependencies, isolated orphan models, degree centrality, and model inheritance hierarchies in one unified dashboard.
-                </p>
-                <div class="odoo-grid-box">
-                    <img src="./05_architecture_health_export.png" alt="Architecture Health">
-                </div>
-            </div>
+                    <!-- TAB 4: PATHFINDER -->
+                    <div class="tab-pane fade" id="tour4">
+                        <div style="margin-bottom:12px;">
+                            <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                                4. BFS Relational Pathfinder
+                            </h4>
+                            <p style="color:#64748b; font-size:14px; margin:0 0 16px 0; line-height:1.6;">
+                                Calculates the shortest relational route between any two database models and generates 1-click ORM dot-notation code (e.g. partner_id.currency_id.symbol).
+                            </p>
+                            <div style="background:#F8FAFC; padding:8px; border:1px solid #E2E8F0; border-radius:8px;">
+                                <img src="./04_relational_pathfinder.png" alt="Relational Pathfinder" style="width:100%; border-radius:6px; display:block;">
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- 6. ERD Table Export -->
-            <div class="tab-pane fade" id="tab-erdexport" role="tabpanel" aria-labelledby="tab-erdexport-btn">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h3 style="font-size: 19px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin: 0;">
-                        6. High-Resolution ERD Table Card Export
-                    </h3>
-                    <span class="odoo-badge" style="background: rgba(79, 70, 229, 0.12); color: #4F46E5;">EXPORT 06</span>
-                </div>
-                <p style="font-size: 14.5px; color: #64748B; margin-bottom: 14px; line-height: 1.55;">
-                    Export clean, presentation-ready PNG diagrams of your database tables or automatically partition large modules into clustered ZIP bundles with a manifest index.
-                </p>
-                <div class="odoo-grid-box">
-                    <img src="./06_erd.png" alt="ERD Export Diagram">
-                </div>
-            </div>
+                    <!-- TAB 5: HEALTH DIAGNOSTICS -->
+                    <div class="tab-pane fade" id="tour5">
+                        <div style="margin-bottom:12px;">
+                            <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                                5. Architecture Health &amp; Diagnostics
+                            </h4>
+                            <p style="color:#64748b; font-size:14px; margin:0 0 16px 0; line-height:1.6;">
+                                Analyzes database schema complexity, flags circular dependencies, detects isolated orphan models, and calculates degree centrality.
+                            </p>
+                            <div style="background:#F8FAFC; padding:8px; border:1px solid #E2E8F0; border-radius:8px;">
+                                <img src="./05_architecture_health_export.png" alt="Architecture Health" style="width:100%; border-radius:6px; display:block;">
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- 7. Graph Vector Export -->
-            <div class="tab-pane fade" id="tab-graphexport" role="tabpanel" aria-labelledby="tab-graphexport-btn">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h3 style="font-size: 19px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin: 0;">
-                        7. High-Resolution Architecture Graph Export
-                    </h3>
-                    <span class="odoo-badge" style="background: rgba(71, 85, 105, 0.12); color: #475569;">EXPORT 07</span>
-                </div>
-                <p style="font-size: 14.5px; color: #64748B; margin-bottom: 14px; line-height: 1.55;">
-                    Download full-vector Cytoscape graph diagrams with automatic metadata watermarking, perfect for technical architecture documentation, sprint planning, and client handoffs.
-                </p>
-                <div class="odoo-grid-box">
-                    <img src="./07_graph.png" alt="Graph Architecture Export">
+                    <!-- TAB 6: ERD EXPORT -->
+                    <div class="tab-pane fade" id="tour6">
+                        <div style="margin-bottom:12px;">
+                            <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                                6. High-Resolution ERD Table Card Export
+                            </h4>
+                            <p style="color:#64748b; font-size:14px; margin:0 0 16px 0; line-height:1.6;">
+                                Export presentation-ready PNG diagrams of your database tables or automatically partition large modules into clustered ZIP bundles.
+                            </p>
+                            <div style="background:#F8FAFC; padding:8px; border:1px solid #E2E8F0; border-radius:8px;">
+                                <img src="./06_erd.png" alt="ERD Export Diagram" style="width:100%; border-radius:6px; display:block;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 7: GRAPH EXPORT -->
+                    <div class="tab-pane fade" id="tour7">
+                        <div style="margin-bottom:12px;">
+                            <h4 style="font-size:18px; font-weight:800; color:#151515; margin:0 0 6px 0; text-transform:uppercase;">
+                                7. High-Resolution Architecture Graph Export
+                            </h4>
+                            <p style="color:#64748b; font-size:14px; margin:0 0 16px 0; line-height:1.6;">
+                                Download full-vector Cytoscape graph diagrams with automatic metadata watermarking, perfect for technical architecture documentation.
+                            </p>
+                            <div style="background:#F8FAFC; padding:8px; border:1px solid #E2E8F0; border-radius:8px;">
+                                <img src="./07_graph.png" alt="Graph Architecture Export" style="width:100%; border-radius:6px; display:block;">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- ══ OPEN SOURCE & COMMUNITY CONTRIBUTION SECTION ═══════════ -->
-    <section class="oe_container odoo-card p-4 p-md-5 mb-4" style="background: linear-gradient(135deg, #FAF5FF 0%, #FFFFFF 50%, #F0FDFA 100%); border-top: 4px solid #E4A900; box-shadow: 0 16px 36px -6px rgba(228, 169, 0, 0.16);">
+    <!-- ===== 4. OPEN SOURCE & COMMUNITY CONTRIBUTION SECTION ===== -->
+    <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:36px 40px; margin-bottom:24px; border-left:6px solid #E4A900;">
         <div class="row align-items-center">
             <div class="col-md-8">
                 <div class="mb-2">
-                    <span class="odoo-badge" style="background: #E4A900; color: #1F1824;">
+                    <span style="display:inline-block; background:#FEF3C7; border:1px solid #D97706; padding:4px 12px; border-radius:50px; font-size:11px; font-weight:700; color:#B38600; text-transform:uppercase; margin-right:6px;">
                         COMMUNITY DRIVEN
                     </span>
-                    <span class="odoo-badge" style="background: #714B67; color: #FFFFFF;">
+                    <span style="display:inline-block; background:#F3E8FF; border:1px solid #714B67; padding:4px 12px; border-radius:50px; font-size:11px; font-weight:700; color:#714B67; text-transform:uppercase;">
                         LGPL-3 LICENSE
                     </span>
                 </div>
-                <h2 style="font-size: 24px; font-weight: 900; color: #0F172A; text-transform: uppercase; letter-spacing: -0.5px; margin: 0 0 10px 0;">
+                <h3 style="font-size:24px; font-weight:800; color:#151515; margin:0 0 10px 0; text-transform:uppercase;">
                     Help Us Make ORMGraph Better
-                </h2>
-                <p style="font-size: 14.5px; color: #475569; line-height: 1.6; margin: 0 0 18px 0;">
-                    ORMGraph is a <strong>100% free and open-source project</strong> built for the entire Odoo developer ecosystem. Whether you want to report a bug, suggest new layout algorithms, or add new framework adapters — your contributions are warmly welcomed!
+                </h3>
+                <p style="color:#585858; font-size:14.5px; line-height:1.6; margin:0 0 20px 0;">
+                    ORMGraph is a <strong>100% free and open-source project</strong> built for the entire Odoo developer community. Whether you want to report a bug, suggest new graph algorithms, or submit improvements — your contributions are warmly welcomed!
                 </p>
-                <div class="d-flex flex-wrap">
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" class="btn-odoo mr-2 mb-2" style="background: #714B67; color: #FFFFFF; box-shadow: 0 4px 14px rgba(113, 75, 103, 0.3);">
+                <div>
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#714B67; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; margin-bottom:6px;">
                         Star Repository
                     </a>
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo/issues" target="_blank" class="btn-odoo mr-2 mb-2" style="background: #017E84; color: #FFFFFF; box-shadow: 0 4px 14px rgba(1, 126, 132, 0.3);">
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo/issues" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#017E84; color:#FFFFFF; text-decoration:none; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; margin-bottom:6px;">
                         Request Feature / Bug
                     </a>
-                    <a href="https://github.com/iam-piyush/ormgraph-odoo/pulls" target="_blank" class="btn-odoo mb-2" style="background: #E4A900; color: #1F1824; box-shadow: 0 4px 14px rgba(228, 169, 0, 0.3);">
+                    <a href="https://github.com/iam-piyush/ormgraph-odoo/pulls" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#E4A900; color:#1F1824; text-decoration:none; border-radius:8px; font-size:13px; font-weight:700; text-transform:uppercase; margin-bottom:6px;">
                         Submit Pull Request
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 text-center mt-4 mt-md-0">
-                <div style="background: #FFFFFF; border-radius: 12px; padding: 22px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); border: 1px solid #E2E8F0;">
-                    <div style="font-weight: 800; font-size: 15px; color: #0F172A; text-transform: uppercase; margin-bottom: 6px;">Open For PRs</div>
-                    <p style="font-size: 13px; color: #64748B; margin: 0; line-height: 1.5;">Clone, fork, and build custom features directly on GitHub.</p>
+            <div class="col-md-4 text-center mt-3 mt-md-0">
+                <div style="background:#FFFFFF; border:1px solid #E8EEF4; border-radius:12px; padding:24px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+                    <h5 style="font-weight:800; font-size:15px; color:#151515; text-transform:uppercase; margin:0 0 6px 0;">Open For PRs</h5>
+                    <p style="color:#64748B; font-size:13px; margin:0; line-height:1.5;">Clone, fork, and build custom features directly on GitHub.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ QUICK START GUIDE ═════════════════════════════════════ -->
-    <section class="oe_container odoo-card p-4 p-md-5 mb-4">
-        <h2 style="font-size: 20px; font-weight: 800; color: #0F172A; text-transform: uppercase; margin-bottom: 18px;">
+    <!-- ===== 5. QUICK START GUIDE ===== -->
+    <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:30px 40px; margin-bottom:24px;">
+        <h3 style="font-size:22px; font-weight:800; color:#151515; margin:0 0 20px 0; text-transform:uppercase;">
             Quick Start (3 Simple Steps)
-        </h2>
+        </h3>
         <div class="row">
             <div class="col-md-4 mb-3 mb-md-0">
-                <div style="background: #FAF5FF; border-radius: 8px; padding: 20px; height: 100%; border-top: 3px solid #714B67;">
-                    <div style="font-weight: 800; font-size: 14px; color: #714B67; margin-bottom: 4px;">STEP 01 // INSTALL</div>
-                    <p style="font-size: 13.5px; color: #64748B; margin: 0; line-height: 1.55;">Place <code>ormgraph_odoo</code> in your addons path, update apps list, and click Install.</p>
+                <div style="background:#FFFFFF; border:1px solid #E8EEF4; border-radius:10px; padding:20px; height:100%; border-top:3px solid #714B67;">
+                    <div style="font-weight:800; font-size:13.5px; color:#714B67; margin-bottom:4px;">STEP 01 // INSTALL</div>
+                    <p style="color:#64748B; font-size:13px; margin:0; line-height:1.55;">Place <code>ormgraph_odoo</code> in your addons path, update apps list, and click Install.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
-                <div style="background: #F0FDFA; border-radius: 8px; padding: 20px; height: 100%; border-top: 3px solid #017E84;">
-                    <div style="font-weight: 800; font-size: 14px; color: #017E84; margin-bottom: 4px;">STEP 02 // LAUNCH</div>
-                    <p style="font-size: 13.5px; color: #64748B; margin: 0; line-height: 1.55;">Open <strong>ORMGraph Studio</strong> from the main app switcher or the smart button on any Technical Model form.</p>
+                <div style="background:#FFFFFF; border:1px solid #E8EEF4; border-radius:10px; padding:20px; height:100%; border-top:3px solid #017E84;">
+                    <div style="font-weight:800; font-size:13.5px; color:#017E84; margin-bottom:4px;">STEP 02 // LAUNCH</div>
+                    <p style="color:#64748B; font-size:13px; margin:0; line-height:1.55;">Open <strong>ORMGraph Studio</strong> from the main app switcher or the smart button on any Technical Model form.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div style="background: #FFFBEB; border-radius: 8px; padding: 20px; height: 100%; border-top: 3px solid #E4A900;">
-                    <div style="font-weight: 800; font-size: 14px; color: #B38600; margin-bottom: 4px;">STEP 03 // EXPLORE</div>
-                    <p style="font-size: 13.5px; color: #64748B; margin: 0; line-height: 1.55;">Select any module to inspect graphs, review ERDs, trace paths, and export high-res PNG/ZIP bundles.</p>
+                <div style="background:#FFFFFF; border:1px solid #E8EEF4; border-radius:10px; padding:20px; height:100%; border-top:3px solid #E4A900;">
+                    <div style="font-weight:800; font-size:13.5px; color:#B38600; margin-bottom:4px;">STEP 03 // EXPLORE</div>
+                    <p style="color:#64748B; font-size:13px; margin:0; line-height:1.55;">Select any module to inspect graphs, review ERDs, trace paths, and export high-res PNG/ZIP bundles.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ AUTHOR & SUPPORT ══════════════════════════════════════ -->
-    <section class="oe_container odoo-card p-4 p-md-5 mb-4" style="background: linear-gradient(135deg, #FFFFFF 0%, #FAF5FF 100%); border-top: 4px solid #714B67;">
+    <!-- ===== 6. AUTHOR & SUPPORT ===== -->
+    <section class="oe_container" style="background-image:linear-gradient(257deg, #FFFFFF 3%, #FAF5FF 95%) !important; border-radius:12px; border:2px solid #E0E8F0; padding:30px 40px; margin-bottom:20px;">
         <div class="row align-items-center">
             <div class="col-md-12">
-                <div style="font-weight: 800; font-size: 11.5px; color: #714B67; text-transform: uppercase; font-family: monospace; letter-spacing: 0.8px;">DEVELOPER &amp; ARCHITECT</div>
-                <h3 style="font-size: 22px; font-weight: 900; color: #0F172A; margin: 4px 0 10px 0; text-transform: uppercase;">
+                <div style="font-weight:700; font-size:12px; color:#714B67; text-transform:uppercase; font-family:monospace; letter-spacing:0.8px;">DEVELOPER &amp; ARCHITECT</div>
+                <h3 style="font-size:22px; font-weight:800; color:#151515; margin:4px 0 10px 0; text-transform:uppercase;">
                     Piyush Kumar
                 </h3>
-                <p style="font-size: 14.5px; color: #475569; line-height: 1.6; margin: 0 0 18px 0; max-width: 720px;">
+                <p style="font-size:14px; color:#585858; line-height:1.6; margin:0 0 18px 0; max-width:700px;">
                     Crafted by <strong>Piyush Kumar</strong>, Full-Stack Software Engineer &amp; Odoo Specialist based in Gurugram, India. Building developer tooling, backend architectures, and high-performance software.
                 </p>
                 <div>
-                    <a href="https://iampiyush.one" target="_blank" class="btn-odoo" style="background: #714B67; color: #FFFFFF; box-shadow: 0 6px 16px rgba(113, 75, 103, 0.25);">Portfolio</a>
-                    <a href="https://github.com/iam-piyush" target="_blank" class="btn-odoo ml-2" style="background: #FFFFFF; color: #0F172A; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); border: 1px solid #E2E8F0;">GitHub</a>
-                    <a href="https://linkedin.com/in/iam-piyush" target="_blank" class="btn-odoo ml-2" style="background: #FFFFFF; color: #0F172A; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); border: 1px solid #E2E8F0;">LinkedIn</a>
-                    <a href="https://x.com/ipiyuush" target="_blank" class="btn-odoo ml-2" style="background: #FFFFFF; color: #0F172A; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); border: 1px solid #E2E8F0;">X</a>
+                    <a href="https://iampiyush.one" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#714B67; color:#FFFFFF; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; box-shadow:0 4px 12px rgba(113,75,103,0.2);">Portfolio</a>
+                    <a href="https://github.com/iam-piyush" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#FFFFFF; color:#151515; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; border:1px solid #dee2e6;">GitHub</a>
+                    <a href="https://linkedin.com/in/iam-piyush" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#FFFFFF; color:#151515; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; margin-right:6px; border:1px solid #dee2e6;">LinkedIn</a>
+                    <a href="https://x.com/ipiyuush" target="_blank" style="display:inline-block; padding:9px 20px; background-color:#FFFFFF; color:#151515; text-decoration:none; border-radius:6px; font-size:13px; font-weight:700; text-transform:uppercase; border:1px solid #dee2e6;">X</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ FOOTER ════════════════════════════════════════════════ -->
-    <div class="text-center py-3" style="font-family: monospace; font-size: 11px; color: #94A3B8;">
-        ORMGRAPH FOR ODOO &bull; CREATED BY PIYUSH KUMAR &bull; LICENSED UNDER LGPL-3.0 &bull; <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" style="color: #714B67; font-weight: 700; text-decoration: none;">GITHUB REPO</a>
+    <!-- ===== FOOTER ===== -->
+    <div class="text-center py-3" style="font-family:monospace; font-size:11.5px; color:#94A3B8;">
+        ORMGRAPH FOR ODOO &bull; CREATED BY PIYUSH KUMAR &bull; LICENSED UNDER LGPL-3.0 &bull; <a href="https://github.com/iam-piyush/ormgraph-odoo" target="_blank" style="color:#714B67; font-weight:700; text-decoration:none;">GITHUB REPO</a>
     </div>
 
 </div>
